@@ -1,18 +1,16 @@
-FROM  node:20-alpine
+FROM node:20-alpine
 
-WORKDIR  /app
+WORKDIR /app
 
-COPY   package*.json    ./
+COPY package*.json ./
 
-RUN   npm install
+RUN npm install
 
-COPY  . . 
+COPY . .
 
 EXPOSE 3000
-
-#CMD ["node","app.js"]
 
 HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
 CMD wget --spider -q http://localhost:3000/health || exit 1
 
-CMD ["npm" , "start"]    
+CMD ["node", "app.js"]
