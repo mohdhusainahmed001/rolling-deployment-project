@@ -2,10 +2,10 @@ const express = require("express");
 
 const app = express();
 
-const VERSION = process.env.VERSION || "v2";
+const VERSION = process.env.VERSION || "v1";
 
 app.get("/", (req, res) => {
-  res.send(`Application Version: ${VERSION}`);
+  res.send(`Rolling Deployment App ${VERSION}`);
 });
 
 app.get("/health", (req, res) => {
@@ -13,5 +13,5 @@ app.get("/health", (req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log("App running on port 3000");
+  console.log(`App running on port 3000`);
 });
