@@ -2,7 +2,7 @@ const express = require("express");
 
 const app = express();
 
-const VERSION = process.env.VERSION || "v1";
+const VERSION = process.env.VERSION || "v2";
 
 app.get("/", (req, res) => {
   res.send(`Rolling Deployment App ${VERSION}`);
